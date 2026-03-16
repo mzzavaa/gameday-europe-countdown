@@ -20,21 +20,21 @@ type SegmentId = "preshow" | "mainevent" | "gameplay" | "closing" | "end" | "wai
  *   ?segment=preshow     → Force a specific segment (preshow|mainevent|gameplay|closing|end|waiting)
  *   ?time=18:05          → Simulate a CET time on event day
  *   ?date=2026-03-17     → Override the event date (use with ?time=)
- *   ?controls=false      → Hide operator controls (for clean fullscreen display)
- *   ?autoplay=true       → Start in auto mode with controls hidden (production mode)
+ *   ?controls=true       → Show operator controls (hidden by default)
+ *   ?autoplay=true       → Start in auto mode (production mode)
  *   ?frame=3750          → Start at a specific frame number
  *   ?minute=2            → Start at a specific minute (converted to frames at 30fps)
  *
  * Examples:
- *   http://localhost:5173/                          → Live countdown until event
+ *   http://localhost:5173/                          → Live countdown until event (no controls)
+ *   http://localhost:5173/?controls=true            → Show operator controls
  *   http://localhost:5173/?segment=preshow          → Test Pre-Show composition
  *   http://localhost:5173/?segment=closing          → Test Closing composition
  *   http://localhost:5173/?segment=closing&frame=3750 → Test Closing at frame 3750 (prize reveal)
  *   http://localhost:5173/?segment=closing&minute=2   → Test Closing at 2 minutes in
  *   http://localhost:5173/?time=17:45               → Simulate 17:45 CET on event day
  *   http://localhost:5173/?time=20:35               → Simulate Closing time
- *   http://localhost:5173/?autoplay=true             → Production: auto-schedule, no controls
- *   http://localhost:5173/?controls=false            → Hide controls but allow Esc toggle
+ *   http://localhost:5173/?autoplay=true            → Production: auto-schedule
  */
 function getUrlParams() {
   const params = new URLSearchParams(window.location.search);
@@ -108,13 +108,13 @@ const COUNTDOWN_MILESTONES = SCHEDULE.filter((s) => s.id !== "end").map((s) => (
 export const App: React.FC = () => {
   const urlParams = getUrlParams();
   const isAutoplay = urlParams.autoplay === "true";
-  const controlsDisabled = urlParams.controls === "false" || isAutoplay;
+  const controlsEnabled = urlParams.controls === "true";
 
   const [segment, setSegment] = useState<SegmentId>(getCurrentSegment);
   const [override, setOverride] = useState<SegmentId | null>(
     urlParams.segment ? (urlParams.segment as SegmentId) : null
   );
-  const [showControls, setShowControls] = useState(!controlsDisabled);
+  const [showControls, setShowControls] = useState(controlsEnabled);
   const playerRef = useRef<PlayerRef>(null);
 
   // Calculate initial frame from URL params (frame takes precedence over minute)
@@ -150,14 +150,14 @@ export const App: React.FC = () => {
 
   const active = override ?? segment;
 
-  // Esc toggles controls (unless autoplay mode)
+  // Esc toggles controls
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
-      if (e.key === "Escape" && !isAutoplay) setShowControls((v) => !v);
+      if (e.key === "Escape") setShowControls((v) => !v);
     };
     window.addEventListener("keydown", handler);
     return () => window.removeEventListener("keydown", handler);
-  }, [isAutoplay]);
+  }, []);
 
   const handleOverride = useCallback((id: SegmentId) => {
     setOverride(id);
@@ -256,7 +256,7 @@ const Controls: React.FC<{
 }> = ({ active, override, onOverride, onAuto }) => (
   <div style={controlsStyle}>
     <div style={{ fontSize: 11, opacity: 0.5, marginBottom: 4 }}>
-      Press <b>Esc</b> to hide • <b>?autoplay=true</b> for production
+      Press <b>Esc</b> to hide • <b>?controls=true</b> to show
     </div>
     <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
       <button onClick={onAuto} style={{ ...btnStyle, background: !override ? "#6c3fa0" : "#333" }}>
