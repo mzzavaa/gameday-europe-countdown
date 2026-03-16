@@ -22,7 +22,6 @@ import {
   spring,
   useCurrentFrame,
   useVideoConfig,
-  staticFile,
 } from "remotion";
 import { TransitionSeries, linearTiming } from "@remotion/transitions";
 import { fade } from "@remotion/transitions/fade";
@@ -33,6 +32,7 @@ import {
   AudioBadge,
   GlassCard,
   SafeImg,
+  staticFile,
   GD_DARK,
   GD_PURPLE,
   GD_VIOLET,

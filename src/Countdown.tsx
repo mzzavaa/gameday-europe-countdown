@@ -1,6 +1,6 @@
 import React from "react";
-import { AbsoluteFill, Img, interpolate, staticFile, useCurrentFrame } from "remotion";
-import { GD_DARK, GD_PURPLE, GD_VIOLET, GD_ACCENT, GD_ORANGE, GD_GOLD, BackgroundLayer, HexGridOverlay } from "@shared/GameDayDesignSystem";
+import { AbsoluteFill, Img, interpolate, useCurrentFrame } from "remotion";
+import { GD_DARK, GD_PURPLE, GD_VIOLET, GD_ACCENT, GD_ORANGE, GD_GOLD, BackgroundLayer, HexGridOverlay, staticFile } from "../shared/GameDayDesignSystem";
 import { AudioIcon, MutedIcon, GamepadIcon, CalendarIcon, CheckCircleIcon, MonitorIcon, ClockIcon, UsersIcon, GlobeIcon, ChairIcon, CodeIcon } from "./icons";
 
 const FONT = "'Amazon Ember', 'Inter', system-ui, sans-serif";

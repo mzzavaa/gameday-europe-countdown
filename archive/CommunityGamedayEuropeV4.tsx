@@ -6,9 +6,9 @@ import {
   useVideoConfig,
   Sequence,
   Img,
-  staticFile,
 } from "remotion";
 import React from "react";
+import { staticFile } from "../shared/GameDayDesignSystem";
 
 // ── Logo URL map from Notion database (48 matched groups) ──
 export const LOGO_MAP: Record<string, string> = {

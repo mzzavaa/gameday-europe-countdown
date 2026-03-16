@@ -1,5 +1,11 @@
-import { AbsoluteFill, Img, staticFile } from "remotion";
+import { AbsoluteFill, Img } from "remotion";
 import React, { useState, useCallback } from "react";
+
+// Custom staticFile that works with Vite's base path
+export const staticFile = (path: string): string => {
+  const base = import.meta.env.BASE_URL || "/";
+  return `${base}${path}`.replace(/\/+/g, "/").replace(":/", "://");
+};
 
 // ── Design Palette ──
 export const GD_DARK = "#0c0820";

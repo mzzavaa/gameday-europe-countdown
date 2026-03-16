@@ -36,7 +36,6 @@ import {
   interpolate,
   Sequence,
   spring,
-  staticFile,
   useCurrentFrame,
   useVideoConfig,
 } from "remotion";
@@ -52,6 +51,7 @@ import {
   springConfig,
   getCardState,
   getPhaseInfo,
+  staticFile,
   STREAM_START,
   GAME_START,
   GD_DARK,

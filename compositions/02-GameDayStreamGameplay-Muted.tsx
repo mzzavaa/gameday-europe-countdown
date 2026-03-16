@@ -1,11 +1,12 @@
 import React from "react";
 import {
   AbsoluteFill, Img, interpolate, Sequence, spring,
-  useCurrentFrame, useVideoConfig, staticFile,
+  useCurrentFrame, useVideoConfig,
 } from "remotion";
 import {
   BackgroundLayer, HexGridOverlay, GlassCard, AudioBadge,
   calculateCountdown, formatTime, springConfig, staggeredEntry,
+  staticFile,
   GAME_START, GAME_END,
   GD_DARK, GD_PURPLE, GD_VIOLET, GD_PINK, GD_ACCENT, GD_ORANGE, GD_GOLD,
   type ScheduleSegment,

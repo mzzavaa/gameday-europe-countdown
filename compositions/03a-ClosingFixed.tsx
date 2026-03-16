@@ -5,7 +5,6 @@ import {
   Sequence,
   interpolate,
   spring,
-  staticFile,
   useCurrentFrame,
   useVideoConfig,
 } from "remotion";
@@ -16,6 +15,7 @@ import {
   GlassCard,
   SafeImg,
   formatTime,
+  staticFile,
   GD_DARK,
   GD_GOLD,
   GD_PURPLE,
