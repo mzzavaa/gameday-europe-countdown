@@ -541,7 +541,7 @@ const SlideMeetAndaJerome: React.FC = () => {
   const noteE = useStagger(8, 8);
 
   const people = [
-    { person: anda, c: GD_PINK, logo: findLogo("AWS User Group Geneva") ?? findLogo("AWS Swiss User Group-Geneva"), desc: "AWS Community Builder and initiator of this GameDay. Anda had the original vision for a pan-European AWS community event and brought together volunteer organizers from 53 User Groups across the continent." },
+    { person: anda, c: GD_PINK, logo: findLogo("AWS User Group Geneva") ?? findLogo("AWS Swiss User Group-Geneva"), desc: "AWS User Group Leader and initiator of this GameDay. Anda had the original vision for a pan-European AWS community event and brought together volunteer organizers from 53 User Groups across the continent." },
     { person: jerome, c: GD_VIOLET, logo: findLogo("AWS User Group Belgium"), desc: "AWS User Group Belgium leader and co-founder of this initiative. Jerome co-architected the event structure, competition framework, and built the network of 53 User Groups across 23 countries." },
   ];
 

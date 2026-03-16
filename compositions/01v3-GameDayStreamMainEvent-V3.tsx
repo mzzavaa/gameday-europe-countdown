@@ -934,7 +934,7 @@ const JeromeAndaCard: React.FC<{ frame: number; fps: number }> = ({ frame, fps }
     {
       name: "Jerome",
       face: "AWSCommunityGameDayEurope/faces/jerome.jpg",
-      title: "AWS Community Builder",
+      title: "AWS User Group Leader",
       ug: "AWS User Group Belgium",
       ugLogo: UG_BEL_LOGO,
       city: "Brussels, Belgium",
@@ -943,7 +943,7 @@ const JeromeAndaCard: React.FC<{ frame: number; fps: number }> = ({ frame, fps }
     {
       name: "Anda",
       face: "AWSCommunityGameDayEurope/faces/anda.jpg",
-      title: "AWS Community Builder",
+      title: "AWS User Group Leader",
       ug: "AWS User Group Geneva",
       ugLogo: UG_GEN_LOGO,
       city: "Geneva, Switzerland",
