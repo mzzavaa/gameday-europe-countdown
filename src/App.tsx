@@ -156,6 +156,8 @@ export const App: React.FC = () => {
     return 0;
   }, [urlParams.frame, urlParams.minute]);
 
+  const hasSeeked = useRef(false);
+
   useEffect(() => {
     const interval = setInterval(() => {
       if (!override) setSegment(getCurrentSegment());
@@ -163,11 +165,12 @@ export const App: React.FC = () => {
     return () => clearInterval(interval);
   }, [override]);
 
-  // Seek to initial frame when player is ready
+  // Seek to initial frame when player is ready (only once)
   useEffect(() => {
+    if (hasSeeked.current) return;
     const initialFrame = getInitialFrame();
     if (initialFrame > 0 && playerRef.current) {
-      // Small delay to ensure player is mounted
+      hasSeeked.current = true;
       const timer = setTimeout(() => {
         playerRef.current?.seekTo(initialFrame);
       }, 100);
