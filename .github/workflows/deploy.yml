@@ -32,8 +32,8 @@ jobs:
 
       # 3. Inject event config into the template
       #    schedule.ts  → web-player (drives segment switching and countdown)
-      #    participants.ts → stream config (feeds all compositions with organizer/UG data)
-      #    logos.ts       → stream config (feeds the pre-show UG logo spotlight)
+      #    participants.ts → stream config (organizers, UG data, logos — single source of truth)
+      #    logos.ts       → stream config (kept for backwards compatibility, map is empty)
       - name: Apply event config
         run: |
           cp countdown/config/schedule.ts    stream/web-player/src/schedule.ts
