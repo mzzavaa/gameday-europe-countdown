@@ -23,9 +23,17 @@ jobs:
         with:
           path: countdown
 
-      # 2. Enable GitHub Pages (idempotent — safe to run on every push)
-      - name: Configure GitHub Pages
-        uses: actions/configure-pages@v4
+      # 2. Enable GitHub Pages with GitHub Actions as the deployment source.
+      #    POST creates it if it doesn't exist; PUT switches source if it does.
+      #    Both commands use `|| true` so they never fail the build.
+      - name: Enable GitHub Pages
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh api repos/${{ github.repository }}/pages \
+            --method POST -f build_type=workflow 2>/dev/null || \
+          gh api repos/${{ github.repository }}/pages \
+            --method PUT  -f build_type=workflow 2>/dev/null || true
 
       # 3. Check out the stream template repo (all web-player and composition code)
       #    By default uses the upstream template. To use your own fork:
