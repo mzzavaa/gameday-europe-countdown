@@ -13,7 +13,7 @@
 export interface Organizer {
   name: string;          // Display name shown on screen and used for lookups
   fullName?: string;     // Optional longer name — only needed if the display name differs (e.g., host intro card)
-  streamRole?: "host" | "support-presenter" | "gamemaster"; // Marks who does what on stream — set this instead of editing the template
+  streamRole?: "host" | "co-organizer" | "support-presenter" | "gamemaster"; // Marks who does what on stream — set this instead of editing the template
   role: string;          // User group name or job title
   country: string;       // Country name or region
   city?: string;         // City shown on cards (e.g., "Vienna, Austria")
@@ -28,10 +28,10 @@ export interface Organizer {
 // ── Community Organizers ──
 export const ORGANIZERS: Organizer[] = [
   {
-    name: "Jerome", role: "AWS User Group Belgium", country: "Belgium", city: "Brussels, Belgium", flag: "🇧🇪", face: "assets/faces/jerome.jpg", type: "community",
+    name: "Jerome", streamRole: "co-organizer", role: "AWS User Group Belgium", country: "Belgium", city: "Brussels, Belgium", flag: "🇧🇪", face: "assets/faces/jerome.jpg", type: "community",
   },
   {
-    name: "Anda", role: "AWS User Group Geneva", country: "Switzerland", city: "Geneva, Switzerland", flag: "🇨🇭", face: "assets/faces/anda.jpg", type: "community",
+    name: "Anda", streamRole: "co-organizer", role: "AWS User Group Geneva", country: "Switzerland", city: "Geneva, Switzerland", flag: "🇨🇭", face: "assets/faces/anda.jpg", type: "community",
   },
   {
     name: "Marcel", role: "AWS User Group Münsterland", country: "Germany", city: "Münster, Germany", flag: "🇩🇪", face: "assets/faces/marcel.jpg", type: "community",
