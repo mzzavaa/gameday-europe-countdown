@@ -5,7 +5,7 @@ All insert compositions live in the stream template repo. This file is the event
 which inserts to use, in what order, and what data to fill in beforehand.
 
 See the full operator guide in the stream template repo:
-[`docs/playbook.md`](https://github.com/mzzavaa/community-gameday-europe-stream-templates/blob/main/docs/playbook.md)
+[`docs/playbook.md`](https://github.com/linda-mhmd/community-gameday-europe-stream-templates/blob/main/docs/playbook.md)
 
 ---
 

@@ -5,14 +5,14 @@ Event-specific configuration for **AWS Community GameDay Europe 2026**.
 This repository holds only what changes between editions — participant data, schedule, face photos. All stream visuals and web player code live in the template repository. Pushing to `main` triggers an automatic build and deploy.
 
 > **Two-repo architecture:**
-> [`community-gameday-europe-stream-templates`](https://github.com/mzzavaa/community-gameday-europe-stream-templates) — all code, compositions, design system
-> [`community-gameday-europe-event`](https://github.com/mzzavaa/community-gameday-europe-event) — this repo, event config + deploys
+> [`community-gameday-europe-stream-templates`](https://github.com/linda-mhmd/community-gameday-europe-stream-templates) — all code, compositions, design system
+> [`community-gameday-europe-event`](https://github.com/linda-mhmd/community-gameday-europe-event) — this repo, event config + deploys
 
 ---
 
 ## Live page
 
-https://mzzavaa.github.io/community-gameday-europe-event/
+https://linda-mhmd.github.io/community-gameday-europe-event/
 
 ---
 
@@ -56,7 +56,7 @@ The URL also appears at the top of **Settings → Pages** after the first succes
 
 On every push to `main`, GitHub Actions:
 
-1. Checks out [`community-gameday-europe-stream-templates`](https://github.com/mzzavaa/community-gameday-europe-stream-templates) as the build base
+1. Checks out [`community-gameday-europe-stream-templates`](https://github.com/linda-mhmd/community-gameday-europe-stream-templates) as the build base
 2. Overwrites `stream/config/participants.ts` with `config/participants.ts` from this repo
 3. Overwrites `stream/web-player/src/schedule.ts` with `config/schedule.ts` from this repo
 4. Merges face photos from `public/faces/` into `stream/public/assets/faces/`
@@ -91,11 +91,11 @@ community-gameday-europe-event/
 ## Using a forked or modified template
 
 By default this repo builds against the upstream template:
-`mzzavaa/community-gameday-europe-stream-templates`
+`linda-mhmd/community-gameday-europe-stream-templates`
 
 If you want to use your own fork of the template (e.g. to change compositions, design, or add new inserts):
 
-1. Fork [`community-gameday-europe-stream-templates`](https://github.com/mzzavaa/community-gameday-europe-stream-templates) and make your changes
+1. Fork [`community-gameday-europe-stream-templates`](https://github.com/linda-mhmd/community-gameday-europe-stream-templates) and make your changes
 2. In **this** repo (your event repo fork), go to **Settings → Secrets and variables → Actions → Variables tab**
 3. Create a new variable:
    - **Name:** `TEMPLATE_REPO`
@@ -126,7 +126,7 @@ Edit the files in `config/` and push:
 To preview compositions locally, clone the template repo:
 
 ```bash
-git clone https://github.com/mzzavaa/community-gameday-europe-stream-templates.git
+git clone https://github.com/linda-mhmd/community-gameday-europe-stream-templates.git
 cd community-gameday-europe-stream-templates
 npm install
 npm run studio
@@ -134,10 +134,10 @@ npm run studio
 
 Open **http://localhost:3000** — all 35 compositions appear in the sidebar.
 
-[![Remotion Studio — all compositions in the sidebar](https://raw.githubusercontent.com/mzzavaa/community-gameday-europe-stream-templates/main/screenshots/studio/readme-remotion-studio.png)](https://github.com/mzzavaa/community-gameday-europe-stream-templates)
+[![Remotion Studio — all compositions in the sidebar](https://raw.githubusercontent.com/linda-mhmd/community-gameday-europe-stream-templates/main/screenshots/studio/readme-remotion-studio.png)](https://github.com/linda-mhmd/community-gameday-europe-stream-templates)
 
 **Remotion Studio runs at:** http://localhost:3000
-**Template repo:** https://github.com/mzzavaa/community-gameday-europe-stream-templates
+**Template repo:** https://github.com/linda-mhmd/community-gameday-europe-stream-templates
 **Remotion docs:** https://www.remotion.dev/docs/studio
 
 ---
@@ -148,15 +148,15 @@ All detailed documentation lives in the template repo:
 
 | Document | Link |
 |---|---|
-| Full developer guide (Remotion Studio, rendering, all compositions) | [docs/remotion.md](https://github.com/mzzavaa/community-gameday-europe-stream-templates/blob/main/docs/remotion.md) |
-| Stream operator playbook (when to trigger each insert) | [docs/playbook.md](https://github.com/mzzavaa/community-gameday-europe-stream-templates/blob/main/docs/playbook.md) |
-| Insert design rules and how to create a new one | [docs/inserts.md](https://github.com/mzzavaa/community-gameday-europe-stream-templates/blob/main/docs/inserts.md) |
-| Pre-show phase details | [docs/00-preshow-muted.md](https://github.com/mzzavaa/community-gameday-europe-stream-templates/blob/main/docs/00-preshow-muted.md) |
-| Main event phase details | [docs/01-mainevent-audio.md](https://github.com/mzzavaa/community-gameday-europe-stream-templates/blob/main/docs/01-mainevent-audio.md) |
-| Gameplay phase details | [docs/02-gameplay-muted.md](https://github.com/mzzavaa/community-gameday-europe-stream-templates/blob/main/docs/02-gameplay-muted.md) |
-| Closing ceremony details | [docs/03-closing-audio.md](https://github.com/mzzavaa/community-gameday-europe-stream-templates/blob/main/docs/03-closing-audio.md) |
-| Filling in winner data before closing | [TEMPLATE.md](https://github.com/mzzavaa/community-gameday-europe-stream-templates/blob/main/TEMPLATE.md) |
-| How to adapt for your own event | [CONTRIBUTING.md](https://github.com/mzzavaa/community-gameday-europe-stream-templates/blob/main/CONTRIBUTING.md) |
+| Full developer guide (Remotion Studio, rendering, all compositions) | [docs/remotion.md](https://github.com/linda-mhmd/community-gameday-europe-stream-templates/blob/main/docs/remotion.md) |
+| Stream operator playbook (when to trigger each insert) | [docs/playbook.md](https://github.com/linda-mhmd/community-gameday-europe-stream-templates/blob/main/docs/playbook.md) |
+| Insert design rules and how to create a new one | [docs/inserts.md](https://github.com/linda-mhmd/community-gameday-europe-stream-templates/blob/main/docs/inserts.md) |
+| Pre-show phase details | [docs/00-preshow-muted.md](https://github.com/linda-mhmd/community-gameday-europe-stream-templates/blob/main/docs/00-preshow-muted.md) |
+| Main event phase details | [docs/01-mainevent-audio.md](https://github.com/linda-mhmd/community-gameday-europe-stream-templates/blob/main/docs/01-mainevent-audio.md) |
+| Gameplay phase details | [docs/02-gameplay-muted.md](https://github.com/linda-mhmd/community-gameday-europe-stream-templates/blob/main/docs/02-gameplay-muted.md) |
+| Closing ceremony details | [docs/03-closing-audio.md](https://github.com/linda-mhmd/community-gameday-europe-stream-templates/blob/main/docs/03-closing-audio.md) |
+| Filling in winner data before closing | [TEMPLATE.md](https://github.com/linda-mhmd/community-gameday-europe-stream-templates/blob/main/TEMPLATE.md) |
+| How to adapt for your own event | [CONTRIBUTING.md](https://github.com/linda-mhmd/community-gameday-europe-stream-templates/blob/main/CONTRIBUTING.md) |
 | This edition's insert schedule | [config/inserts.md](config/inserts.md) |
 
 ---

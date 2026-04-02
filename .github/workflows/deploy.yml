@@ -32,7 +32,7 @@ jobs:
       - name: Checkout stream template
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
         with:
-          repository: ${{ vars.TEMPLATE_REPO || 'mzzavaa/community-gameday-europe-stream-templates' }}
+          repository: ${{ vars.TEMPLATE_REPO || 'linda-mhmd/community-gameday-europe-stream-templates' }}
           path: stream
           persist-credentials: false
 
